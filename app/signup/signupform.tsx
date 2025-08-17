@@ -77,6 +77,7 @@ export const SignupForm = () => {
     } catch (error) {
       console.log("Error signing in with Facebook:", error);
     }
+    
   }
 
   return (
