@@ -16,7 +16,7 @@ export const SignupForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setConfirmPass] = useState(false);
 
-      const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState({
     name: '',
     email: '',
     password: '',
@@ -57,15 +57,50 @@ export const SignupForm = () => {
       try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
         console.log("User Credentials:", userCredentials);
+        const user = userCredentials.user;
+
+        const res = await fetch("/api/users/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            uid: user.uid,
+            name: name,
+            email: user.email,
+          }),
+        });
+
+        const data = await res.json();
+        console.log("User created:", data);
       } catch (error) {
         console.log("Error signing up:", error, error.message);
       }
 
-  }}
+  }} 
 
   const signInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
+      const provider = new GoogleAuthProvider();
+      provider.addScope('email');
+      const data = await signInWithPopup(auth, provider);
+      const user = data.user;
+      console.log("Google User:", user);
+      const res = await fetch("/api/users/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+        }),
+      });
+
+      const datas = await res.json();
+      console.log("User created:", datas);
+
     } catch (error) {
       console.log("Error signing in with Google:", error);
     }

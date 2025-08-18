@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 let isConnected = false;
 
-export async function connecteDB() {
+export async function connectDB() {
   if (isConnected) return;
   try {
     await mongoose.connect(process.env.MONGODB_URI as string, {

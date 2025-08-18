@@ -56,7 +56,26 @@ export const LoginForm = () => {
 
   const signInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
+      const provider = new GoogleAuthProvider();
+      provider.addScope('email');
+      const data = await signInWithPopup(auth, provider);
+      const user = data.user;
+      console.log("Google User:", user);
+      const res = await fetch("/api/users/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+        }),
+      });
+
+      const datas = await res.json();
+      console.log("User created:", datas);
+      
     } catch (error) {
       console.log("Error signing in with Google:", error);
     }
