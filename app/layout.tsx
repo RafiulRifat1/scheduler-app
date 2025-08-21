@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Poppins } from 'next/font/google';
 import "./globals.css";
 import Navbar from "./main/navbar";
+import { AuthProvider } from "@/context/AuthContext";
 
     const poppins = Poppins({
       subsets: ['latin'],
       display: 'swap',
       variable: '--font-poppins', 
-      weight: ['400', '700'] // Specify weights if not using a variable font
+      weight: ['400', '700'] 
     });
 
 export const metadata: Metadata = {
@@ -25,8 +26,10 @@ export default function RootLayout({
       <body
         className={poppins.className}
       >
+        <AuthProvider>
         <Navbar />
-        {children}
+        {children}          
+        </AuthProvider>
       </body>
     </html>
   );

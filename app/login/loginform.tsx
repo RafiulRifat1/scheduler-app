@@ -58,6 +58,7 @@ export const LoginForm = () => {
     try {
       const provider = new GoogleAuthProvider();
       provider.addScope('email');
+      provider.addScope('public_profile');
       const data = await signInWithPopup(auth, provider);
       const user = data.user;
       console.log("Google User:", user);
@@ -70,6 +71,7 @@ export const LoginForm = () => {
           uid: user.uid,
           name: user.displayName,
           email: user.email,
+          photo: user.photoURL,
         }),
       });
 

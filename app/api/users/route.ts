@@ -7,8 +7,8 @@ export async function POST(req: Request) {
     try {
         await connectDB();
         const body = await req.json();
-        const {uid, name, email} = body;
-        const user = await User.create({uid, name, email});
+        const {uid, name, email, image} = body;
+        const user = await User.create({uid, name, email, image});
         return NextResponse.json(user);
 
     } catch(error) {
