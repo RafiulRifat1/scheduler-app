@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import "./globals.css";
 import Navbar from "./main/navbar";
 import { AuthProvider } from "@/context/AuthContext";
+import Sidebar from "./main/sidebar";
 
     const poppins = Poppins({
       subsets: ['latin'],
@@ -23,12 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={poppins.className}
-      >
+      <body className={poppins.className}>
         <AuthProvider>
-        <Navbar />
-        {children}          
+          <div className="flex min-h-screen overflow-hidden">
+            <Sidebar />
+            <div className="flex flex-col flex-1">
+              <Navbar />
+              <main className="flex-1 overflow-hidden">
+                {children}
+              </main>
+            </div>
+          </div>
         </AuthProvider>
       </body>
     </html>

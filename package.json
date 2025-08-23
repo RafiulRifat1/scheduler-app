@@ -12,6 +12,7 @@
     "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^3.0.2",
     "firebase": "^12.1.0",
+    "lucide-react": "^0.541.0",
     "mongoose": "^8.17.1",
     "next": "15.4.6",
     "react": "19.1.0",
