@@ -23,8 +23,19 @@ body {
   background: var(--background);
   color: var(--foreground);
      font-family: var(--font-poppins);
+  background-image: url(/bg2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 input[type="password"]::-ms-reveal {
   display: none;
+}
+
+.duelert-text {
+  font-size: 5vmin;
+  color: #303030;
+  font-weight: 400;
+  word-wrap: break-word;
 }

@@ -12,17 +12,19 @@ export default function Navbar() {
 
   return (
     (user ? 
-    <nav className="flex items-center justify-between shadow mt-3 pr-2 py-[16.5px]">
+    <nav className="flex justify-between border-b-2  pr-2 py-[16]">
+      <div className="duelert-text pl-4">{ (pathname === "/" ? "Calendar" : pathname || "Calendar")}</div>
 
-      <div className="hidden md:flex w-1/3 relative ">
-        <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-800" />
+
+       <div className="flex items-center gap-6 pr-4">
+        <div className="hidden md:flex relative pr-4 ">
         <input
           type="text"
           placeholder="Search Date"
-          className="w-full pl-10 pr-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-red-400"
+          className="w-full right-0 pl-4 pr-3 py-2 text-gray-700 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-red-400"
         />
+        <Search className="absolute right-7 top-2.5 h-5 w-5 text-gray-400" />
       </div>
-        <div className="flex items-center gap-6">
           <div className="relative cursor-pointer">
             <Bell className="h-6 w-6 text-gray-600" />
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
@@ -34,7 +36,7 @@ export default function Navbar() {
               <p className="text-sm font-semibold text-gray-700">
                 {user.displayName || user.email}
               </p>
-              <p className="text-xs text-right text-gray-400">CEO</p>
+              <p className="text-xs text-right text-gray-400">{user.email || <span>No email</span>}</p>
             </div>
             <Image
               src="/Ellipse.svg"

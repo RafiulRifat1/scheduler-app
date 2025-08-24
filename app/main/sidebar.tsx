@@ -21,7 +21,7 @@ export default function Sidebar() {
 
   return (
     (user ?
-            <aside className="h-screen w-60 flex flex-col justify-between shadow">
+            <aside className="h-screen w-60 flex flex-col justify-between border-r-2">
       <div>
         {/* <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
@@ -30,12 +30,12 @@ export default function Sidebar() {
             {/* <span className="ml-2 text-[60px] font-medium text-[#303030]">Duelert</span> */}
           {/* </Link>
         </div> */}
-              <div className="flex items-center justify-center py-4 shadow">
-                <Image src="/Duelert-logo.webp" alt="Logo" width={30} height={30} />
-                <div style={{color: '#303030', fontSize: '4vmin', fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>Duelert</div>
+              <div className="flex items-center justify-center py-4 border-b-2">
+                <Image src="/Duelert-logo.webp" alt="Logo" width={40} height={40} />
+                <div className='duelert-text'>Duelert</div>
               </div>
-        <ul className="space-y-2 py-8">
-            <div className="text-lg font-bold text-gray-700 pl-8">Main Menu</div>
+        <ul className="space-y-2 py-12">
+            <div className="text-lg font-bold text-gray-700 pl-12">Main Menu</div>
           {menuItems.map((item, idx) => (
             <li key={idx}>
               <Link
