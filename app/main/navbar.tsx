@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Bell, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/src/context/AuthContext";
 
 export default function Navbar() {
   const pathname = usePathname();
