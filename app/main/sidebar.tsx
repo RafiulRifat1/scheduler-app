@@ -1,7 +1,7 @@
 "use client";
 import { Calendar, Bell, Users, DollarSign, Headphones } from "lucide-react";
 import Link from "next/link";
-import { useAuth } from "@/src/context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import Image from "next/image";
 
 const menuItems = [

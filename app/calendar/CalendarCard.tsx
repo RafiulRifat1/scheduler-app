@@ -1,16 +1,14 @@
 "use client";
 
-import CalendarCard from "./calendar/CalendarCard";
-
-// import FullCalendar from '@fullcalendar/react'
-// import dayGridPlugin from '@fullcalendar/daygrid'
-// import timeGridPlugin from '@fullcalendar/timegrid';
-// import interactionPlugin from "@fullcalendar/interaction";
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from "@fullcalendar/interaction";
 
 export default function Home() {
   return (
       <div className="p-6 pb-0 bg-amber-50 text-black">
-      {/* <FullCalendar
+      <FullCalendar
       plugins={[ dayGridPlugin, timeGridPlugin, interactionPlugin ]}
       initialView="dayGridWeek"
       editable={true}
@@ -26,8 +24,7 @@ export default function Home() {
         { title: 'event 2', date: '2025-08-26' }
       ]}
       height="780px"
-    /> */}
-    <CalendarCard />
+    />
       </div>
   );
 }
