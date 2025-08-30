@@ -12,7 +12,10 @@ export async function POST(req: Request) {
         return NextResponse.json(user);
 
     } catch(error) {
-        return NextResponse.json({ error: error.message });
+        if (error instanceof Error) {
+            return NextResponse.json({ error: error.message }, { status: 500 });
+        }
+        return NextResponse.json({error: 'Unknown Error'});
     }
 }
 
@@ -22,6 +25,9 @@ export async function POST(req: Request) {
         const users =  await User.find({});
         return NextResponse.json(users)
     } catch (error) {
-        return NextResponse.json({error: error.message});
+        if (error instanceof Error) {
+            return NextResponse.json({ error: error.message }, { status: 500 });
+        }
+        return NextResponse.json({error: 'Unknown Error'});
     }
  }

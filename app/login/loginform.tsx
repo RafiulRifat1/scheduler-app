@@ -49,7 +49,10 @@ export const LoginForm = () => {
         const userCredentials = await signInWithEmailAndPassword(auth, email, password);
         console.log("User Credentials:", userCredentials);
       } catch (error) {
-        console.log("Error signing in:", error, error.message);
+        if (error instanceof Error){
+          console.log("Error message:", error.message);
+        }
+        console.log("Error signing in:", error);
       }
 
   }}
@@ -161,7 +164,7 @@ export const LoginForm = () => {
 
 
  <p className="text-center text-gray-500 mt-4">
- Don't have an account?{' '}
+ Don&apos;t have an account?{' '}
  <Link href="/signup" className="font-bold text-red-500 hover:underline">
  Create Now
  </Link>

@@ -13,7 +13,10 @@ export async function POST(req: Request) {
         const newEvent = await User.create(body);
         return NextResponse.json(newEvent, { status: 201 });
     } catch (error) {
-        return NextResponse.json({ error: 'Failed to create event' });
+                if (error instanceof Error) {
+                    return NextResponse.json({ error: error.message }, { status: 500 });
+                }
+                return NextResponse.json({error: 'Unknown Error'});
     }
 }
 
@@ -23,6 +26,9 @@ export async function GET() {
         const events = await User.find({});
         return NextResponse.json(events);
     } catch (error) {
-        return NextResponse.json({ error: 'Failed to fetch events' });
+               if (error instanceof Error) {
+            return NextResponse.json({ error: error.message }, { status: 500 });
+        }
+        return NextResponse.json({error: 'Unknown Error'});
     }
 }

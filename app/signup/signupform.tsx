@@ -74,7 +74,7 @@ export const SignupForm = () => {
         const data = await res.json();
         console.log("User created:", data);
       } catch (error) {
-        console.log("Error signing up:", error, error.message);
+        console.log("Error signing up:", error);
       }
 
   }} 

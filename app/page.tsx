@@ -9,7 +9,7 @@ import CalendarCard from "./calendar/CalendarCard";
 
 export default function Home() {
   return (
-      <div className="p-6 pb-0 bg-amber-50 text-black">
+      <div className="p-6 pb-0 text-black">
       {/* <FullCalendar
       plugins={[ dayGridPlugin, timeGridPlugin, interactionPlugin ]}
       initialView="dayGridWeek"

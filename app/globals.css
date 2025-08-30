@@ -152,7 +152,7 @@ input[type="password"]::-ms-reveal {
   }
 }
 
-.fc .fc-timegrid-slot {
+/* .fc .fc-timegrid-slot {
   height: 97px !important;   
   line-height: 97px !important;
 }
@@ -170,7 +170,7 @@ font-style: normal !important;
 font-weight: 600 !important;
 line-height: normal !important;
   padding-right: 12px !important;
-  border: none !important;   /* line remove */
+  border: none !important;   
   min-width: 130px !important;
 }
 
@@ -206,4 +206,4 @@ line-height: normal !important;
   font-size: 12px;
   color: #888;
   margin-top: 4px;
-}
+} */
